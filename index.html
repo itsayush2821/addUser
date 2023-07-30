@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form id="addUser">
-       <Label>Name</Label>
-       <input type="text" id="name" />
-       <Label>Email</Label>
-       <input type="text" id="email" />
-       <Label>Phone</Label>
-       <input type="number" id="phone" />
-       <input type="submit" id="submit" />
-    </form>
-<ul id="userList">
 
-</ul>
-    <script src="main.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add User Application</title>
+</head>
+
+<body>
+  <h1>Add User</h1>
+  <form id="addUserForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <br>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" required>
+    <br>
+    <button type="submit">Add</button>
+  </form>
+
+  <h1>User List</h1>
+  <ul id="userList"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
