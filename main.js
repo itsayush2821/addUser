@@ -1,4 +1,9 @@
-showData()
+document.addEventListener("DOMContentLoaded", function(){
+    //....
+    showData()
+
+});
+
 const form = document.getElementById('addUserForm');
 const userList = document.getElementById('userList');
 // Add event listener to the form
@@ -18,7 +23,7 @@ function showData(){
             // Create edit and delete buttons for the user data
             const editBtn = document.createElement('button');
             editBtn.innerText = 'Edit';
-            editBtn.addEventListener('click', () => editUser(newUser[i]._id, newUser[i]));
+            editBtn.addEventListener('click', () => editUser(newUser[i]._id, newUser[i] , li));
        
             const deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Delete';
@@ -73,18 +78,19 @@ function addUser(e) {
 }
 
 // Function to handle editing a user
-function editUser(userId, userData) {
+function editUser(userId, userData, listItem) {
   const name = document.getElementById('name');
   const email = document.getElementById('email');
   const phone = document.getElementById('phone');
 
   // Populate the form fields with the user data for editing
-  name.value = userData.name;
-  email.value = userData.email;
-  phone.value = userData.phone;
+  name.value = userData?.name;
+  email.value = userData?.email;
+  phone.value = userData?.phone;
 
   // Remove the user from the list while editing
-  userList.removeChild(userList.querySelector(`li[data-user-id="${userId}"]`));
+//   userList.removeChild(userList.querySelector(`li[data-user-id="${userId}"]`));
+  userList.removeChild(listItem);
 
   // Change the form's submit event to handle user update
   form.removeEventListener('submit', addUser);
@@ -120,7 +126,7 @@ function updateUser(e, userId) {
       // Create edit and delete buttons for the updated user data
       const editBtn = document.createElement('button');
       editBtn.innerText = 'Edit';
-      editBtn.addEventListener('click', () => editUser(updatedUserData.id, updatedUserData));
+      editBtn.addEventListener('click', () => editUser(updatedUserData.id, updatedUserData,li));
 
       const deleteBtn = document.createElement('button');
       deleteBtn.innerText = 'Delete';
